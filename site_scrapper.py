@@ -7,16 +7,12 @@ from bs4 import BeautifulSoup
 from stem.control import Controller
 from stem import Signal
 
-
-
 lst = ['Firefox','Internet+Explorer','Opera','Safari','Chrome','Edge','Android+Webkit+Browser']
-
 
 def save(br,ua):
 	file = br+'.txt'
 	with open(file,'ab') as f:
 		f.write(ua+'\n')
-
 
 def getUa(br):
 	url = 'http://www.useragentstring.com/pages/useragentstring.php?name='+br
@@ -38,6 +34,7 @@ def getUa(br):
 	else:
 		print 'No soup for '+br
 
+#get html page from site, find form action button, fire submit button
 def main():
   count = 0
   start_time = time.time()
@@ -90,7 +87,7 @@ def main():
 
       headers = {
         'Content-Type': 'application/x-www-form-urlencoded',
-        'Referer': 'http://www.mzra.ru/',
+        'Referer': 'http://www.xyz.ru/',
         'Accept-Encoding': 'gzip, deflate',
         'Accept-Language': 'en-US,en;q=0.5',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
